@@ -32,7 +32,7 @@ bool LoadPE(PBYTE lpBuf)
 	memmove(pAllocPE, lpBuf, dwHeaderSize);
 
 	//循环加载每一个节区
-	while (pSecHeader->VirtualAddress && pSecHeader->SizeOfRawData)
+	while (pSecHeader->VirtualAddress || pSecHeader->SizeOfRawData)
 	{
 		if (pNtHeader->OptionalHeader.FileAlignment > pNtHeader->OptionalHeader.SectionAlignment) 
 		{
