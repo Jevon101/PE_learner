@@ -2,22 +2,22 @@
 
 typedef void (*PTestFunc)();
 
-void main(int argc,char *argv[])
+int main(int argc,char *argv[])
 {
-	char address[] = "E:\\#RE#\\PE_Loader\\LoadMemDll-master\\DLL_BIN.dll";
+	char address[] = "Your PE Address";
 	PBYTE pBuf = GetRsrc(address);
 
 	if (!pBuf)
 	{
-		OutputDebugStringA("Get Rsrc err");
-		exit(0);
+		printf("Get Rsrc err");
+		return -1;
 	}
 
 	if (!LoadPE(pBuf)) 
 	{
-		OutputDebugStringA("LoadPE err");
-		exit(0);
+		printf("LoadPE err");
+		return -1;
 	}
 
-
+	return 0;
 }
